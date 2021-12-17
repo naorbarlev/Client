@@ -33,7 +33,11 @@ const AdiAngle = (props) => {
   }, [props.adi]);
 
   return (
-    <Chart>
+    <Chart
+      style={{
+        height: 280,
+      }}
+    >
       <ChartSeries>
         <ChartSeriesItem type="pie" data={series} field="value" />
       </ChartSeries>
