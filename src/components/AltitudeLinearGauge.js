@@ -3,12 +3,8 @@ import * as ReactDOM from "react-dom";
 import { LinearGauge } from "@progress/kendo-react-gauges";
 
 const AltitudeLinearGauge = (props) => {
-  console.log("1 => " + props.altitude);
-
   const [value, setValue] = React.useState(0);
   React.useEffect(() => {
-    console.log("2 => " + props.altitude);
-    console.log("3 => " + value);
     setValue(props.altitude);
   }, [props.altitude]);
 

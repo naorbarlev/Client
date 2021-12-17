@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-import "@progress/kendo-theme-default/dist/all.css";
-import AltitudeLinearGauge from "./components/AltitudeLinearGauge";
+// import "@progress/kendo-theme-default/dist/all.css";
+import "@progress/kendo-theme-bootstrap/dist/all.css";
 import { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
+
+import ControlPanel from "./components/ControlPanel";
 
 const ENDPOINT = "http://localhost:4001";
 
@@ -29,10 +31,9 @@ const App = () => {
 
   return (
     <div className="DashBoard">
-      <AltitudeLinearGauge altitude={state.altitude}></AltitudeLinearGauge>
-      <p>altitude {state.altitude}</p>
-      <p>HIS {state.his}</p>
-      <p>ADI {state.adi}</p>
+      {/* <AltitudeLinearGauge altitude={state.altitude}></AltitudeLinearGauge>
+      <AdiAngle adi={state.adi}></AdiAngle> */}
+      <ControlPanel serverData={state}></ControlPanel>
     </div>
   );
 };
