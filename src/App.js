@@ -31,8 +31,6 @@ const App = () => {
 
   return (
     <div className="DashBoard">
-      {/* <AltitudeLinearGauge altitude={state.altitude}></AltitudeLinearGauge>
-      <AdiAngle adi={state.adi}></AdiAngle> */}
       <ControlPanel serverData={state}></ControlPanel>
     </div>
   );

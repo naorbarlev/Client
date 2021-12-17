@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom";
 import { Button } from "@progress/kendo-react-buttons";
 import AltitudeLinearGauge from "./AltitudeLinearGauge";
 import AdiAngle from "./AdiAngle";
+import Compass from "./Compass";
 // import "./styles.css";
 
 const ControlPanel = (props) => {
@@ -28,7 +29,9 @@ const ControlPanel = (props) => {
             altitude={props.serverData.altitude}
           ></AltitudeLinearGauge>
         </div>
-        <div className="col col-4">sec gauge</div>
+        <div className="col col-4">
+          <Compass his={props.serverData.his}></Compass>
+        </div>
         <div className="col col-4">
           <AdiAngle adi={props.serverData.adi}></AdiAngle>
         </div>

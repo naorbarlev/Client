@@ -2,22 +2,35 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { LinearGauge } from "@progress/kendo-react-gauges";
 
+const linearOptions = {
+  value: 0,
+  shape: "arrow",
+  scale: {
+    minorUnit: 100,
+    majorUnit: 500,
+    max: 3000,
+  },
+};
+
 const AltitudeLinearGauge = (props) => {
-  const [value, setValue] = React.useState(0);
+  const [linearOptions, setLinearOptions] = React.useState({});
   React.useEffect(() => {
-    setValue(props.altitude);
+    setLinearOptions(getUpToDateObj(props.altitude));
   }, [props.altitude]);
 
-  const linearOptions = {
-    value: value,
+  return <LinearGauge {...linearOptions} />;
+};
+
+function getUpToDateObj(val) {
+  let linear = {};
+  return (linear = {
+    value: val,
     shape: "arrow",
     scale: {
       minorUnit: 100,
       majorUnit: 500,
       max: 3000,
     },
-  };
-  return <LinearGauge {...linearOptions} />;
-};
-
+  });
+}
 export default AltitudeLinearGauge;
