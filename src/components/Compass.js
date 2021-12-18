@@ -1,7 +1,5 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
 import { RadialGauge } from "@progress/kendo-react-gauges";
-import { useState, useEffect } from "react";
 
 const radialOptions = {
   pointer: [
@@ -21,7 +19,7 @@ const Compass = (props) => {
   const [radialOptions, setRadialOptions] = React.useState({});
   React.useEffect(() => {
     setRadialOptions(getUpToDateObj(props.his));
-  }, [props.his]);
+  }, [props]);
 
   return <RadialGauge {...radialOptions} />;
 };

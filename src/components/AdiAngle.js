@@ -1,14 +1,12 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
 import { useState, useEffect } from "react";
 import {
   Chart,
-  ChartLegend,
   ChartSeries,
   ChartSeriesItem,
-  ChartTitle,
 } from "@progress/kendo-react-charts";
 import "hammerjs";
+
 const series = [
   {
     category: "",
@@ -28,7 +26,6 @@ const AdiAngle = (props) => {
   const [series, setSeries] = useState({});
 
   useEffect(() => {
-    console.log("useEffect()");
     setSeries(inputCheck(props.adi));
   }, [props.adi]);
 
@@ -47,7 +44,6 @@ const AdiAngle = (props) => {
 
 function inputCheck(val) {
   let returnSeries = [];
-  console.log("inputCheck function val => " + val);
 
   if (val > 0 && val <= 100) {
     returnSeries = [
