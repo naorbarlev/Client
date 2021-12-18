@@ -21,9 +21,4 @@ const AltitudeLinearGauge = (props) => {
   return <LinearGauge {...linearOptions} />;
 };
 
-function inputCheck(val) {
-  let myvalue = parseInt(val) * 1;
-
-  return myvalue;
-}
 export default AltitudeLinearGauge;

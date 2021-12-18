@@ -7,21 +7,6 @@ import {
 } from "@progress/kendo-react-charts";
 import "hammerjs";
 
-const series = [
-  {
-    category: "",
-    value: 0,
-  },
-  {
-    category: "",
-    value: 0,
-  },
-  {
-    category: "",
-    value: 0,
-  },
-];
-
 const AdiAngle = (props) => {
   const [series, setSeries] = useState({});
 
@@ -32,7 +17,7 @@ const AdiAngle = (props) => {
   return (
     <Chart
       style={{
-        height: 280,
+        height: 300,
       }}
     >
       <ChartSeries>
@@ -42,6 +27,8 @@ const AdiAngle = (props) => {
   );
 };
 
+//מקבלת ערך שהגיע מהשרת ובודק איזה תצוגה לשים על פי הטווחים
+//מחזירה מערך של מצב חדש
 function inputCheck(val) {
   let returnSeries = [];
 

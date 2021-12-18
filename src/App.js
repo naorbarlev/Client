@@ -18,24 +18,35 @@ let state = {
 };
 
 const App = () => {
+  //אם החיבור לא צלח נסיון התחברות חדש לשרת
   if (socket == null) {
     socket = socketIOClient(ENDPOINT);
   }
+  //המכיל את הנתונים המתקבלים מהשרת STATE
   const [state, updateState] = useState({});
+  // לטיפול לליצת כפתור הטקסט STATE יצירת
   const [showText, setShowText] = useState(false);
+  // לטיפול ללחיצת כפתור התצוגה STATE יצירת
   const [showControls, setShowControls] = useState(false);
 
+  //על המסך יוצג או תצוגה ויזאולית או טקסטואלית
+  //אירוע לחיצה על כתפור טקסט
   const onTextClick = () => {
+    //מפעיל את הפונקציה לדריסת המצב הנוכחי ושם אמת לטקסט ושקר לתצוגה
     setShowText(true);
     setShowControls(false);
   };
+  //אירוע לחיצה על כתפור תצוגה
   const onVisualClick = () => {
+    //מפעיל את הפונקציה לדריסת המצב הנוכחי ושם אמת לתצוגה ושקר לטקסט
     setShowControls(true);
     setShowText(false);
   };
 
   useEffect(() => {
+    //מופעל בעת שליחת מידע מהשרת
     socket.on("SEND_OBJECT", (dataObj) => {
+      //דריסת המצב הנוחכי ועדכון האובייקט על ידי המידע שהתקבל מהשרת
       updateState(dataObj);
     });
   }, []);

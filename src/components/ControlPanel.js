@@ -1,11 +1,11 @@
 import * as React from "react";
 import "@progress/kendo-theme-bootstrap/dist/all.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "@progress/kendo-react-buttons";
 import AltitudeLinearGauge from "./AltitudeLinearGauge";
 import AdiAngle from "./AdiAngle";
 import Compass from "./Compass";
 
+// מכיל את הפקדים הויזואלים
 const ControlPanel = (props) => {
   return (
     <div class=" align-items-center">
