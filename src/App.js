@@ -11,12 +11,6 @@ const ENDPOINT = "http://localhost:4001";
 
 let socket = socketIOClient(ENDPOINT);
 
-let state = {
-  altitude: "",
-  adi: "",
-  his: "",
-};
-
 const App = () => {
   //אם החיבור לא צלח נסיון התחברות חדש לשרת
   if (socket == null) {
@@ -38,8 +32,13 @@ const App = () => {
   };
   //אירוע לחיצה על כתפור תצוגה
   const onVisualClick = () => {
-    //מפעיל את הפונקציה לדריסת המצב הנוכחי ושם אמת לתצוגה ושקר לטקסט
-    setShowControls(true);
+    //בדיקה עם המצב הנוכחי ריק, אם כן לא יוצגו רכיבים ויזואליים על המסך
+    if (Object.keys(state).length == 0) {
+      setShowControls(false);
+    } else {
+      setShowControls(true);
+    }
+    //הסתרת תצוגת טקטסט בעת לחיצה על כפתור ויזואל
     setShowText(false);
   };
 
@@ -48,6 +47,11 @@ const App = () => {
     socket.on("SEND_OBJECT", (dataObj) => {
       //דריסת המצב הנוחכי ועדכון האובייקט על ידי המידע שהתקבל מהשרת
       updateState(dataObj);
+      //רק בעת קבלת נתונים מהלקוח יוצג רכיבים ויזואליים
+      if (!showText) {
+        setShowControls(true);
+        setShowText(false);
+      }
     });
   }, []);
 
