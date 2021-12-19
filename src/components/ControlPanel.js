@@ -15,10 +15,20 @@ const ControlPanel = (props) => {
             altitude={props.serverData.altitude}
           ></AltitudeLinearGauge>
         </div>
-        <div className="col col-4">
-          <Compass his={props.serverData.his}></Compass>
+        <div
+          className="col col-4"
+          style={{
+            transform: "rotate(90deg)",
+          }}
+        >
+          <Compass hsi={props.serverData.hsi}></Compass>
         </div>
-        <div className="col col-4">
+        <div
+          className="col col-4"
+          style={{
+            transform: "rotate(90deg)",
+          }}
+        >
           <AdiAngle adi={props.serverData.adi}></AdiAngle>
         </div>
       </div>

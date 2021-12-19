@@ -4,7 +4,7 @@ import { RadialGauge } from "@progress/kendo-react-gauges";
 const Compass = (props) => {
   const [radialOptions, setRadialOptions] = React.useState({});
   React.useEffect(() => {
-    setRadialOptions(getUpToDateObj(props.his));
+    setRadialOptions(getUpToDateObj(props.hsi));
   }, [props]);
 
   return <RadialGauge {...radialOptions} />;

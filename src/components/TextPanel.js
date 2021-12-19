@@ -10,7 +10,7 @@ const TextlPanel = (props) => {
         <div class="col-1"></div>
         <div class="col col-2">Values recieved from server:</div>
         <div class="col col-1">Altitude: {props.serverData.altitude} </div>
-        <div class="col col-1">HIS: {props.serverData.his}</div>
+        <div class="col col-1">HIS: {props.serverData.hsi}</div>
         <div class="col col-1">ADI: {props.serverData.adi}</div>
         <div class="col-7"></div>
       </div>

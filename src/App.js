@@ -84,7 +84,6 @@ const App = () => {
       <div class="row k-mb-4"></div>
       {showControls ? <ControlPanel serverData={state}></ControlPanel> : null}
       <div class="row k-mb-4"></div>
-
       {showText ? <TextlPanel serverData={state}></TextlPanel> : null}
     </div>
   );
